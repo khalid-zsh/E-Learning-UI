@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CourseDetailsView extends StatefulWidget {
-  const CourseDetailsView({super.key});
+
+  final String title;
+
+  const CourseDetailsView({super.key, required this.title});
 
   @override
   State<CourseDetailsView> createState() => _CourseDetailsViewState();

@@ -16,7 +16,7 @@ class CustomCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.to(()=> CourseDetailsView());
+        Get.to(()=> CourseDetailsView(title: title,));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -57,6 +57,6 @@ class CustomCategory extends StatelessWidget {
           ],
         ),
       ),
-    );;
+    );
   }
 }
