@@ -71,8 +71,6 @@ flutter:
     - assets/gridView/network.json
     - assets/gridView/software.json
     - assets/gridView/web.json
-    - assets/Readme/home.png
-    - assets/Readme/onBoarding.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
