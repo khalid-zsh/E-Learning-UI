@@ -7,7 +7,6 @@ import '../../../Utils/colors.dart';
 class CustomCategory extends StatelessWidget {
 
   final String icon;
-
   final String title;
   final dynamic courses;
 
