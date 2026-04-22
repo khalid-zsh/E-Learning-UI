@@ -6,6 +6,7 @@ class CustomButton extends StatelessWidget {
   final String ? title;
   final Color ? color;
   final double ? width;
+  final double ? height;
   final void Function() ? onTap;
 
   const CustomButton(
@@ -14,7 +15,8 @@ class CustomButton extends StatelessWidget {
         required this.title,
         required this.color,
         required this.width,
-        this.onTap
+        this.onTap,
+        this.height
       }
       );
 

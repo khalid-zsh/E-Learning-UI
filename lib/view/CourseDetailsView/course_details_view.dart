@@ -1,7 +1,10 @@
 import 'package:e_learning_ui/Helper/widgets/custom_app_bar.dart';
+import 'package:e_learning_ui/Helper/widgets/custom_button.dart';
 import 'package:e_learning_ui/Utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+
+import '../../Helper/widgets/custom_list_view.dart';
 
 class CourseDetailsView extends StatefulWidget {
 
@@ -201,15 +204,17 @@ class _CourseDetailsViewState extends State<CourseDetailsView> {
               Expanded(
                 child: TabBarView(
                   children: [
-                    ListView(
-                      children: [
-                        _buildLessonItem("Introduction", "2 Min 18 Sec", true, true),
-                        _buildLessonItem("What is Artificial Intelligence?", "18 Min 46 Sec", false, false),
-                        _buildLessonItem("How to make wireframe", "20 Min 58 Sec", false, false),
-                        _buildLessonItem("Your first design", "25 Min 10 Sec", false, false),
-                      ],
+                    SingleChildScrollView(
+                      child: CustomListView(
+                          lessons: [
+                            Lesson(title: "Introduction", duration: "2 Min 18 Sec", isCompleted: true),
+                            Lesson(title: "What is Artificial Intelligence?", duration: "18 Min 46 Sec", isLocked: true),
+                            Lesson(title: "How to make wireframe", duration: "20 Min 58 Sec", isLocked: true),
+                            Lesson(title: "Your first design", duration: "25 Min 10 Sec", isLocked: true),
+                          ]
+                      ),
                     ),
-                    const Center(child: Text("Course Description Here")),
+                    Center(child: Text("Course Description Here")),
                   ],
                 ),
               ),
@@ -234,22 +239,15 @@ class _CourseDetailsViewState extends State<CourseDetailsView> {
                   ),
                 ),
                 SizedBox(width: 15),
+                // Custom Button
                 Expanded(
-                    child: ElevatedButton(
-                        onPressed: (){},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.primaryColor,
-                          minimumSize: Size(double.infinity, 60),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                        ),
-                        child: Text(
-                          "Enroll Now",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
-                        )
+                    child: SizedBox(
+                      height: 60,
+                      child: CustomButton(
+                          title: "Enroll Now",
+                          color: AppColors.primaryColor,
+                          width: double.infinity
+                      ),
                     )
                 )
               ],
@@ -259,22 +257,4 @@ class _CourseDetailsViewState extends State<CourseDetailsView> {
       ),
     );
   }
-}
-
-Widget _buildLessonItem(String title, String duration, bool isCompleted, bool isUnlocked) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8.0),
-    child: ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: CircleAvatar(
-        backgroundColor: AppColors.primaryColor.withValues(alpha: .2),
-        child: Icon(Icons.play_arrow, color: AppColors.primaryColor),
-      ),
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(duration, style: TextStyle(color: Colors.grey.shade500)),
-      trailing: isCompleted
-          ? const Icon(Icons.check_circle, color: Colors.green)
-          : Icon(Icons.lock, color: Colors.amber.shade200),
-    ),
-  );
 }
