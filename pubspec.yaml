@@ -37,6 +37,7 @@ dependencies:
   get: ^4.7.3
   lottie: ^3.3.3
   flutter_svg: ^2.2.4
+  video_player: ^2.11.1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +74,7 @@ flutter:
     - assets/gridView/web.json
     - assets/readme/home.png
     - assets/readme/onboarding.png
+    - assets/videos/video.mp4
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
